@@ -1,0 +1,23 @@
+# IAI EC电缸配置文件
+connection:
+  ip_address: "192.168.1.100"  # 电缸IP地址
+  port: 44818                   # EtherNet/IP默认端口
+  timeout: 5                    # 连接超时时间（秒）
+
+controller:
+  model: "EC-RTC12"            # 电缸型号
+  max_rotation: 330            # 最大旋转角度
+  reduction_ratio: 45          # 减速比
+
+motion:
+  default_speed: 100           # 默认速度（度/秒）
+  default_acceleration: 0.3    # 默认加速度（G）
+  default_deceleration: 0.3    # 默认减速度（G）
+
+safety:
+  enable_limits: true          # 启用限位保护
+  emergency_stop: true         # 启用紧急停止
+
+logging:
+  level: "INFO"               # 日志级别
+  file: "logs/ec_control.log" # 日志文件路径
