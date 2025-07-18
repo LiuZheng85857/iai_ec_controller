@@ -2,9 +2,15 @@
 IAI EC电缸控制程序主入口
 """
 import sys
+import os
+from pathlib import Path
+
+# 将项目根目录添加到Python路径
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
+
 import yaml
 import argparse
-from pathlib import Path
 from loguru import logger
 
 from core.ec_controller import ECController
@@ -36,9 +42,9 @@ def main():
     # 解析命令行参数
     parser = argparse.ArgumentParser(description='IAI EC电缸控制程序')
     parser.add_argument('-c', '--config', default='config.yaml',
-                        help='配置文件路径')
+                       help='配置文件路径')
     parser.add_argument('--demo', action='store_true',
-                        help='运行演示程序')
+                       help='运行演示程序')
     args = parser.parse_args()
 
     # 加载配置
@@ -108,6 +114,8 @@ def demo_sequence(controller: ECController, motion: MotionCommands):
 
 def interactive_mode(controller: ECController, motion: MotionCommands):
     """交互模式"""
+    from datetime import datetime
+
     print("\n=== IAI EC电缸控制 - 交互模式 ===")
     print("命令列表:")
     print("  home - 原点复位")

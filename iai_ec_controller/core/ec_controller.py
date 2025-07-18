@@ -4,8 +4,10 @@ IAI EC电缸控制器主类
 import time
 from typing import Optional, Dict, Any
 from loguru import logger
-from .eip_client import EIPClient
-from ..utils.validator import Validator
+
+# 修改导入方式
+from core.eip_client import EIPClient
+from utils.validator import Validator
 
 
 class ECController:
@@ -13,24 +15,24 @@ class ECController:
 
     # 信号定义（根据说明书）
     SIGNALS = {
-        'ST0': 'Controller.ST0',  # 后退信号
-        'ST1': 'Controller.ST1',  # 前进信号
-        'RES': 'Controller.RES',  # 报警解除
+        'ST0': 'Controller.ST0',      # 后退信号
+        'ST1': 'Controller.ST1',      # 前进信号
+        'RES': 'Controller.RES',      # 报警解除
         'BKRLS': 'Controller.BKRLS',  # 刹车解除
-        'LS0': 'Controller.LS0',  # 后退完成
-        'LS1': 'Controller.LS1',  # 前进完成
-        'PE0': 'Controller.PE0',  # 后退推压完成
-        'PE1': 'Controller.PE1',  # 前进推压完成
-        'ALM': 'Controller.ALM',  # 报警状态
+        'LS0': 'Controller.LS0',      # 后退完成
+        'LS1': 'Controller.LS1',      # 前进完成
+        'PE0': 'Controller.PE0',      # 后退推压完成
+        'PE1': 'Controller.PE1',      # 前进推压完成
+        'ALM': 'Controller.ALM',      # 报警状态
     }
 
     # 参数地址定义
     PARAMETERS = {
-        'position': 'Controller.Position',  # 当前位置
-        'speed': 'Controller.Speed',  # 速度设定
-        'acceleration': 'Controller.Acceleration',  # 加速度
-        'deceleration': 'Controller.Deceleration',  # 减速度
-        'target_position': 'Controller.TargetPos',  # 目标位置
+        'position': 'Controller.Position',           # 当前位置
+        'speed': 'Controller.Speed',                 # 速度设定
+        'acceleration': 'Controller.Acceleration',   # 加速度
+        'deceleration': 'Controller.Deceleration',   # 减速度
+        'target_position': 'Controller.TargetPos',   # 目标位置
         'home_complete': 'Controller.HomeComplete',  # 原点复位完成
     }
 
@@ -103,7 +105,7 @@ class ECController:
         return False
 
     def move_to_position(self, position: float, speed: Optional[float] = None,
-                         acceleration: Optional[float] = None) -> bool:
+                        acceleration: Optional[float] = None) -> bool:
         """
         移动到指定位置
 

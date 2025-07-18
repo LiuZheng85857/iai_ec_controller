@@ -1,0 +1,4 @@
+2025-07-17 16:19:32.153 | INFO     | __main__:main:54 - IAI EC电缸控制程序启动
+2025-07-17 16:19:37.160 | ERROR    | core.eip_client:connect:41 - 连接失败: failed to open a connection
+2025-07-17 16:19:37.160 | ERROR    | __main__:main:63 - 无法连接到电缸
+2025-07-17 16:19:37.160 | INFO     | __main__:main:79 - 程序结束

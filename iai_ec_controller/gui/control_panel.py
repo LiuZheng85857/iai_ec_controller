@@ -8,10 +8,10 @@ import threading
 from typing import Dict, Any
 from loguru import logger
 
-from ..core.ec_controller import ECController
-from ..commands.motion import MotionCommands
-from ..commands.parameter import ParameterCommands
-from ..commands.status import StatusCommands
+from core.ec_controller import ECController
+from commands.motion import MotionCommands
+from commands.parameter import ParameterCommands
+from commands.status import StatusCommands
 
 
 class ControlPanel:

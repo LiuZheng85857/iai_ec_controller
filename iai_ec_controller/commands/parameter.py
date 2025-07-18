@@ -4,7 +4,7 @@
 """
 from typing import Dict, Any, Optional
 from loguru import logger
-from ..utils.converter import Converter
+from utils.converter import Converter
 
 
 class ParameterCommands:

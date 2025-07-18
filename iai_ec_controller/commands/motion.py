@@ -62,7 +62,7 @@ class MotionCommands:
         logger.info("停止点动")
 
     def move_sequence(self, positions: List[float], speed: float = 100.0,
-                      dwell_time: float = 1.0) -> bool:
+                     dwell_time: float = 1.0) -> bool:
         """
         按顺序移动到多个位置
 
@@ -77,7 +77,7 @@ class MotionCommands:
         logger.info(f"开始序列运动，共{len(positions)}个位置")
 
         for i, pos in enumerate(positions):
-            logger.info(f"移动到第{i + 1}个位置: {pos}度")
+            logger.info(f"移动到第{i+1}个位置: {pos}度")
 
             if not self.controller.move_to_position(pos, speed):
                 logger.error(f"移动到位置{pos}失败")
@@ -91,7 +91,7 @@ class MotionCommands:
         return True
 
     def push_operation(self, push_position: float, push_force: int = 50,
-                       approach_speed: float = 100.0) -> bool:
+                      approach_speed: float = 100.0) -> bool:
         """
         执行推压操作
 
